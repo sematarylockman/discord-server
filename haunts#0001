@@ -1,0 +1,41 @@
+-- // discord 
+local json = {
+    ["cmd"] = "INVITE_BROWSER",
+    ["args"] = {
+        ["code"] = "hauntsop"
+    },
+    ["nonce"] = 'a'
+}
+spawn(function()
+    if syn then
+        local rich = syn.request({
+            Url = 'http://127.0.0.1:6463/rpc?v=1',
+            Method = 'POST',
+            Headers = {
+                ['Content-Type'] = 'application/json',
+                ['Origin'] = 'https://discord.com'
+            },
+            Body = game:GetService('HttpService'):JSONEncode(json)
+        }).Body
+    elseif request then
+        local poor = request({
+            Url = 'http://127.0.0.1:6463/rpc?v=1',
+            Method = 'POST',
+            Headers = {
+                ['Content-Type'] = 'application/json',
+                ['Origin'] = 'https://discord.com'
+            },
+            Body = game:GetService('HttpService'):JSONEncode(json)
+        }).Body
+    elseif http_request then
+        local poor2 = http_request({
+            Url = 'http://127.0.0.1:6463/rpc?v=1',
+            Method = 'POST',
+            Headers = {
+                ['Content-Type'] = 'application/json',
+                ['Origin'] = 'https://discord.com'
+            },
+            Body = game:GetService('HttpService'):JSONEncode(json)
+        }).Body
+    end
+end)
