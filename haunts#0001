@@ -1,4 +1,3 @@
--- // discord 
 local json = {
     ["cmd"] = "INVITE_BROWSER",
     ["args"] = {
